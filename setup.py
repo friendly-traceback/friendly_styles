@@ -8,7 +8,7 @@ def read(fname):
 
 setup(
     name='friendly_styles',
-    version='0.0.4',
+    version='0.0.5',
     description='Pygments styles designed for friendly/friendly-traceback',
     long_description=read('README.md'),
     license='MIT',

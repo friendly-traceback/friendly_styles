@@ -45,7 +45,7 @@ colours = {
     "black": "#101010",
 }
 
-base_style = {
+friendly_style = {
     "builtins": colours["green"],
     "code": colours["blue2"],
     "comments": colours["gray"],
@@ -64,31 +64,31 @@ base_style = {
 # with the following choices:
 
 rich_style = {
-    "markdown.code": base_style["code"],
-    "repr.tag_name": base_style["code"],  # for consistency with Python
-    "markdown.h1": base_style["diagnostics"],
+    "markdown.code": friendly_style["code"],
+    "repr.tag_name": friendly_style["code"],  # for consistency with Python
+    "markdown.h1": friendly_style["diagnostics"],
     # Exception message; location header H2
-    "markdown.h2": base_style["Exception"],
+    "markdown.h2": friendly_style["Exception"],
     "markdown.h3": colours["mauve"],  # likely cause
     "markdown.h4": colours["orange"],  # warning header
-    "markdown.link": f"underline {base_style['keywords']}",
-    "repr.url": base_style["keywords"],
-    "repr.number": base_style["numbers"],
+    "markdown.link": f"underline {friendly_style['keywords']}",
+    "repr.url": friendly_style["keywords"],
+    "repr.number": friendly_style["numbers"],
     # The next three are identical for pygments, so we keep them identical
-    "repr.bool_false": base_style["TrueFalseNone"],
-    "repr.bool_true": base_style["TrueFalseNone"],
-    "repr.none": base_style["TrueFalseNone"],
+    "repr.bool_false": friendly_style["TrueFalseNone"],
+    "repr.bool_true": friendly_style["TrueFalseNone"],
+    "repr.none": friendly_style["TrueFalseNone"],
     #
-    "repr.str": base_style["string"],
-    "repr.error": base_style["Exception"],
-    "repr.indent": base_style["comments"],
-    "repr.attrib_name": base_style["builtins"],
-    "repr.attrib_value": base_style["code"],
-    "repr.attrib_equal": base_style["operators"],
-    "repr.call": base_style["code"],
+    "repr.str": friendly_style["string"],
+    "repr.error": friendly_style["Exception"],
+    "repr.indent": friendly_style["comments"],
+    "repr.attrib_name": friendly_style["builtins"],
+    "repr.attrib_value": friendly_style["code"],
+    "repr.attrib_equal": friendly_style["operators"],
+    "repr.call": friendly_style["code"],
 }
 
-base_style.update(**rich_style)
+friendly_style.update(**rich_style)
 
 
 class FriendlyLightStyle(Style):
@@ -97,86 +97,86 @@ class FriendlyLightStyle(Style):
     """
     background_color = colours["white"]
     default_style = "#363636"
-    base_style = base_style
+    friendly_style = friendly_style
 
     styles = {
-        Text: base_style["text"],  # class:  ''
+        Text: friendly_style["text"],  # class:  ''
         Whitespace: "",  # class: 'w'
         Error: "bg:#cc0000 #ffffff",  # class: 'err'
-        Other: base_style["string"],  # class 'x'
+        Other: friendly_style["string"],  # class 'x'
         #
-        Comment: base_style["comments"],  # class: 'c'
-        Comment.Multiline: base_style["comments"],  # class: 'cm'
-        Comment.Preproc: base_style["comments"],  # class: 'cp'
-        Comment.Single: base_style["comments"],  # class: 'c1'
-        Comment.Special: base_style["comments"],  # class: 'cs'
+        Comment: friendly_style["comments"],  # class: 'c'
+        Comment.Multiline: friendly_style["comments"],  # class: 'cm'
+        Comment.Preproc: friendly_style["comments"],  # class: 'cp'
+        Comment.Single: friendly_style["comments"],  # class: 'c1'
+        Comment.Special: friendly_style["comments"],  # class: 'cs'
         #
-        Generic: base_style["text"],  # class: 'g'
-        Generic.Deleted: base_style["Exception"],  # class: 'gd'
-        Generic.Emph: base_style["text"],  # class: 'ge'
-        Generic.Error: base_style["Exception"],  # class: 'gr'
-        Generic.Heading: base_style["text"],  # class: 'gh'
-        Generic.Inserted: base_style["text"],  # class: 'gi'
-        Generic.Output: base_style["text"],  # class: 'go'
-        Generic.Prompt: base_style["keywords"],  # class: 'gp'
-        Generic.Strong: base_style["text"],  # class: 'gs'
-        Generic.Subheading: base_style["text"],  # class: 'gu'
-        Generic.Traceback: base_style["Exception"],  # class: 'gt'
+        Generic: friendly_style["text"],  # class: 'g'
+        Generic.Deleted: friendly_style["Exception"],  # class: 'gd'
+        Generic.Emph: friendly_style["text"],  # class: 'ge'
+        Generic.Error: friendly_style["Exception"],  # class: 'gr'
+        Generic.Heading: friendly_style["text"],  # class: 'gh'
+        Generic.Inserted: friendly_style["text"],  # class: 'gi'
+        Generic.Output: friendly_style["text"],  # class: 'go'
+        Generic.Prompt: friendly_style["keywords"],  # class: 'gp'
+        Generic.Strong: friendly_style["text"],  # class: 'gs'
+        Generic.Subheading: friendly_style["text"],  # class: 'gu'
+        Generic.Traceback: friendly_style["Exception"],  # class: 'gt'
         #
-        Keyword: base_style["keywords"],  # class: 'k'
-        Keyword.Constant: base_style["TrueFalseNone"],  # class: 'kc'
-        Keyword.Declaration: base_style["keywords"],  # class: 'kd'
-        Keyword.Namespace: base_style["keywords"],  # class: 'kn'
-        Keyword.Pseudo: base_style["keywords"],  # class: 'kp'
-        Keyword.Reserved: base_style["keywords"],  # class: 'kr'
-        Keyword.Type: base_style["keywords"],  # class: 'kt'
+        Keyword: friendly_style["keywords"],  # class: 'k'
+        Keyword.Constant: friendly_style["TrueFalseNone"],  # class: 'kc'
+        Keyword.Declaration: friendly_style["keywords"],  # class: 'kd'
+        Keyword.Namespace: friendly_style["keywords"],  # class: 'kn'
+        Keyword.Pseudo: friendly_style["keywords"],  # class: 'kp'
+        Keyword.Reserved: friendly_style["keywords"],  # class: 'kr'
+        Keyword.Type: friendly_style["keywords"],  # class: 'kt'
         #
-        Literal: base_style["text"],  # class: 'l'
-        Literal.Date: base_style["text"],  # class: 'ld'
+        Literal: friendly_style["text"],  # class: 'l'
+        Literal.Date: friendly_style["text"],  # class: 'ld'
         #
-        Name: base_style["code"],  # class: 'n'
-        Name.Attribute: base_style["code"],  # class: 'na'
+        Name: friendly_style["code"],  # class: 'n'
+        Name.Attribute: friendly_style["code"],  # class: 'na'
         # The following is for file path in tracebacks and Python builtins.
-        Name.Builtin: base_style["builtins"],  # class: 'nb'
-        Name.Builtin.Pseudo: base_style["builtins"],  # class: 'bp'
-        Name.Class: base_style["code"],  # class: 'nc'
-        Name.Constant: base_style["code"],  # class: 'no'
-        Name.Decorator: base_style["code"],  # class: 'nd'
-        Name.Entity: base_style["code"],  # class: 'ni'
-        Name.Exception: base_style["Exception"],  # class: 'ne'
-        Name.Function: base_style["code"],  # class: 'nf'
-        Name.Property: base_style["code"],  # class: 'py'
-        Name.Label: base_style["code"],  # class: 'nl'
-        Name.Namespace: base_style["code"],  # class: 'nn'
-        Name.Other: base_style["diagnostics"],  # class: 'nx'
-        Name.Tag: base_style["code"],  # class: 'nt' - like a keyword
-        Name.Variable: base_style["text"],  # class: 'nv'
-        Name.Variable.Class: base_style["code"],  # class: 'vc'
-        Name.Variable.Global: base_style["code"],  # class: 'vg'
-        Name.Variable.Instance: base_style["text"],  # class: 'vi'
+        Name.Builtin: friendly_style["builtins"],  # class: 'nb'
+        Name.Builtin.Pseudo: friendly_style["builtins"],  # class: 'bp'
+        Name.Class: friendly_style["code"],  # class: 'nc'
+        Name.Constant: friendly_style["code"],  # class: 'no'
+        Name.Decorator: friendly_style["code"],  # class: 'nd'
+        Name.Entity: friendly_style["code"],  # class: 'ni'
+        Name.Exception: friendly_style["Exception"],  # class: 'ne'
+        Name.Function: friendly_style["code"],  # class: 'nf'
+        Name.Property: friendly_style["code"],  # class: 'py'
+        Name.Label: friendly_style["code"],  # class: 'nl'
+        Name.Namespace: friendly_style["code"],  # class: 'nn'
+        Name.Other: friendly_style["diagnostics"],  # class: 'nx'
+        Name.Tag: friendly_style["code"],  # class: 'nt' - like a keyword
+        Name.Variable: friendly_style["text"],  # class: 'nv'
+        Name.Variable.Class: friendly_style["code"],  # class: 'vc'
+        Name.Variable.Global: friendly_style["code"],  # class: 'vg'
+        Name.Variable.Instance: friendly_style["text"],  # class: 'vi'
         #
-        Number: base_style["numbers"],  # class: 'm'
-        Number.Float: base_style["numbers"],  # class: 'mf'
-        Number.Hex: base_style["numbers"],  # class: 'mh'
-        Number.Integer: base_style["numbers"],  # class: 'mi'
-        Number.Integer.Long: base_style["numbers"],  # class: 'il'
-        Number.Oct: base_style["numbers"],  # class: 'mo'
+        Number: friendly_style["numbers"],  # class: 'm'
+        Number.Float: friendly_style["numbers"],  # class: 'mf'
+        Number.Hex: friendly_style["numbers"],  # class: 'mh'
+        Number.Integer: friendly_style["numbers"],  # class: 'mi'
+        Number.Integer.Long: friendly_style["numbers"],  # class: 'il'
+        Number.Oct: friendly_style["numbers"],  # class: 'mo'
         #
-        Operator: base_style["operators"],  # class: 'o'
-        Operator.Word: base_style["keywords"],  # class: 'ow'
+        Operator: friendly_style["operators"],  # class: 'o'
+        Operator.Word: friendly_style["keywords"],  # class: 'ow'
         #
-        Punctuation: base_style["operators"],  # class: 'p'
+        Punctuation: friendly_style["operators"],  # class: 'p'
         #
-        String: base_style["string"],  # class: 's'
-        String.Backtick: base_style["string"],  # class: 'sb'
-        String.Char: base_style["string"],  # class: 'sc'
-        String.Doc: base_style["string"],  # class: 'sd'
-        String.Double: base_style["string"],  # class: 's2'
-        String.Escape: base_style["string"],  # class: 'se'
-        String.Heredoc: base_style["string"],  # class: 'sh'
-        String.Interpol: base_style["string"],  # class: 'si'
-        String.Other: base_style["string"],  # class: 'sx'
-        String.Regex: base_style["string"],  # class: 'sr'
-        String.Single: base_style["string"],  # class: 's1'
-        String.Symbol: base_style["string"],  # class: 'ss'
+        String: friendly_style["string"],  # class: 's'
+        String.Backtick: friendly_style["string"],  # class: 'sb'
+        String.Char: friendly_style["string"],  # class: 'sc'
+        String.Doc: friendly_style["string"],  # class: 'sd'
+        String.Double: friendly_style["string"],  # class: 's2'
+        String.Escape: friendly_style["string"],  # class: 'se'
+        String.Heredoc: friendly_style["string"],  # class: 'sh'
+        String.Interpol: friendly_style["string"],  # class: 'si'
+        String.Other: friendly_style["string"],  # class: 'sx'
+        String.Regex: friendly_style["string"],  # class: 'sr'
+        String.Single: friendly_style["string"],  # class: 's1'
+        String.Symbol: friendly_style["string"],  # class: 'ss'
     }

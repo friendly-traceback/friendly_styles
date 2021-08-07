@@ -8,7 +8,7 @@ def read(fname):
 
 setup(
     name='friendly_styles',
-    version='0.0.3',
+    version='0.0.4',
     description='Pygments styles designed for friendly/friendly-traceback',
     long_description=read('README.md'),
     license='MIT',
@@ -18,23 +18,22 @@ setup(
 
     url='https://github.com/friendly-traceback/friendly_styles',
     packages=find_packages(),
-    install_requires=['pygments >= 1.5'],
+    install_requires=['pygments >= 2'],
 
     entry_points={
         "pygments.styles": [
-            "friendly_light = styles.friendly_light:FriendlyLightStyle",
-            "friendly_dark = styles.friendly_dark:FriendlyDarkStyle",
+            "friendly_light = friendly_styles.friendly_light:FriendlyLightStyle",
+            "friendly_dark = friendly_styles.friendly_dark:FriendlyDarkStyle",
         ]
     },
 
     classifiers=[
-        'Development Status :: 1 - Planning',
+        'Development Status :: 4 - Beta',
         'Environment :: Plugins',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 3',
         'Topic :: Software Development :: Libraries :: Python Modules',
     ]

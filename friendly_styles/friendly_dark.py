@@ -58,8 +58,12 @@ friendly_style = {
 }
 
 # Since we use Rich's pretty(), we try to ensure that the colours
-# are consistent.  pretty() highlight objects based on their repr name
-# with the following choices:
+# are consistent.  pretty() highlight objects based on their repr name,
+# while code highlighting is done by pygments based on different
+# definitions.
+# Rich defines some default values in
+# https://github.com/willmcgugan/rich/blob/master/rich/default_styles.py
+#
 
 rich_style = {
     "markdown.code": friendly_style["code"],
@@ -70,6 +74,7 @@ rich_style = {
     "markdown.h3": colours["mauve"],  # likely cause
     "markdown.h4": colours["orange"],  # warning header
     "markdown.link": f"underline {friendly_style['keywords']}",
+    "markdown.item.bullet": friendly_style["code"],
     "repr.url": friendly_style["keywords"],
     "repr.number": friendly_style["numbers"],
     # The next three are identical for pygments, so we keep them identical
@@ -95,6 +100,10 @@ class FriendlyDarkStyle(Style):
     """
     background_color = colours["black"]
     default_style = "#363636"
+    # Pygments styles are registered in such a way that only this class
+    # is accessible, normally preventing the above definitions
+    # (needed for specifying a theme for Rich) from being accessible.
+    # This class variable makes them available.
     friendly_style = friendly_style
 
     styles = {

@@ -37,7 +37,7 @@ colours = {
     "white": "#F4F0EC",
     "beige": "#DEB887",
     "blue": "#87CEEB",
-    "gray": "#999999",
+    "gray": "#666666",
     "green": "#87A96B",
     "mauve": "#9370DB",
     "black": "#101010",
